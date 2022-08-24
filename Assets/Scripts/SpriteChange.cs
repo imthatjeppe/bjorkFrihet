@@ -27,8 +27,8 @@ public class SpriteChange : MonoBehaviour
 
     public void shake()
     {
-        const float duration = 0.8f;
-        const float strength = 0.4f;
+        const float duration = 0.6f;
+        const float strength = 0.2f;
 
         shaker.DOShakePosition(duration, strength);
         shaker.DOShakeRotation(duration, strength);
