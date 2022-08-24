@@ -12,22 +12,17 @@ public class SpriteChange : MonoBehaviour
 
     [SerializeField]
     private Transform shaker;
-    private bool pressed;
-
     void Start()
     {
-        pressed = false;
         button = GetComponent<Button>();
         button.image.overrideSprite = grayScale;
     }
-
-    void Update()
-    {
-
-    }
+    
     public void changeSprite()
     {
         button.image.overrideSprite = color;
+        button.enabled = false;
+        Invoke(nameof(EnableButton), 1);
     }
 
     public void shake()
@@ -38,7 +33,10 @@ public class SpriteChange : MonoBehaviour
         shaker.DOShakePosition(duration, strength);
         shaker.DOShakeRotation(duration, strength);
         shaker.DOShakeScale(duration, strength);
-
     }
-    
+
+    private void EnableButton()
+    {
+        button.enabled = true;
+    }
 }
