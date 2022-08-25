@@ -12,6 +12,10 @@ public class SpriteChange : MonoBehaviour
 
     [SerializeField]
     private Transform shaker;
+
+    [SerializeField]
+    private AudioSource Boing;
+   
     void Start()
     {
         button = GetComponent<Button>();
@@ -22,6 +26,7 @@ public class SpriteChange : MonoBehaviour
     {
         button.image.overrideSprite = color;
         button.enabled = false;
+        Boing.Play();
         Invoke(nameof(EnableButton), 1);
     }
 

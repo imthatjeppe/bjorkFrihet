@@ -5,6 +5,9 @@ using UnityEngine;
 public class ChangeLevel : MonoBehaviour
 {
     public GameObject LeftSide, RightSide, Main;
+
+    [SerializeField]
+    private AudioSource buttons;
     void Start()
     {
         LeftSide.SetActive(false);
@@ -16,17 +19,21 @@ public class ChangeLevel : MonoBehaviour
         LeftSide.SetActive(false);
         RightSide.SetActive(false);
         Main.SetActive(true);
+        buttons.Play();
     }
     public void activeLeftSide()
     {
         LeftSide.SetActive(true);
         RightSide.SetActive(false);
         Main.SetActive(false);
+        buttons.Play();
     }
     public void activeRightSide()
     {
         LeftSide.SetActive(false);
         RightSide.SetActive(true);
         Main.SetActive(false);
+        buttons.Play();
+
     }
 }
