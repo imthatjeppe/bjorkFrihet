@@ -10,24 +10,32 @@ public class SpriteChange : MonoBehaviour
     public Sprite grayScale;
     public Sprite color;
 
+    private bool isClicked;
+
     [SerializeField]
     private Transform shaker;
 
     [SerializeField]
     private AudioSource Boing;
-   
+
+    private ChangeLevel score;
+
     void Start()
     {
         button = GetComponent<Button>();
         button.image.overrideSprite = grayScale;
+        score = FindObjectOfType<ChangeLevel>();
     }
-    
     public void changeSprite()
     {
         button.image.overrideSprite = color;
         button.enabled = false;
         Boing.Play();
         Invoke(nameof(EnableButton), 1);
+
+        if (isClicked) return;
+        isClicked = true;
+        score.score++;
     }
 
     public void shake()
@@ -39,7 +47,6 @@ public class SpriteChange : MonoBehaviour
         shaker.DOShakeRotation(duration, strength);
         shaker.DOShakeScale(duration, strength);
     }
-
     private void EnableButton()
     {
         button.enabled = true;
