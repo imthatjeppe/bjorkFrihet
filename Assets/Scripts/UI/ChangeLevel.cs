@@ -44,4 +44,10 @@ public class ChangeLevel : MonoBehaviour
         Main.SetActive(false);
         buttons.Play();
     }
+
+    public void RemoveEnding()
+    {
+        score = 6;
+        addedMain.SetActive(false);
+    }
 }

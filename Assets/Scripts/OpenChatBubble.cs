@@ -19,6 +19,6 @@ public class OpenChatBubble : MonoBehaviour
 
     public void hideChatBubble()
     {
-        chatBubble.SetActive(false);
+        chatBubble.SetActive(false); 
     }
 }
