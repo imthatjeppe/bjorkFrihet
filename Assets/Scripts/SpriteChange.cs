@@ -26,6 +26,10 @@ public class SpriteChange : MonoBehaviour
         button.image.overrideSprite = grayScale;
         score = FindObjectOfType<ChangeLevel>();
     }
+    private void Update()
+    {
+
+    }
     public void changeSprite()
     {
         button.image.overrideSprite = color;
